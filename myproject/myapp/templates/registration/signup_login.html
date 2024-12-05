@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up or Login</title>
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ signup_form.as_p }}
+        <button type="submit" name="signup">Sign Up</button>
+    </form>
+    <br><br>
+
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <button type="submit" name="login">Login</button>
+    </form>
+</body>
+</html>
+
+

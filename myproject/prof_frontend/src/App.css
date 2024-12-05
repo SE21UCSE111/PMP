@@ -1,0 +1,185 @@
+/* General styles for the app */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #e3ffe7, #d9e7ff);
+    color: black;
+    line-height: 1.6;
+  }
+  
+  /* Main container for each page */
+  .page-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header styles */
+  h1, h2 {
+    color: black;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Modal styles */
+  .modal-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .modal-header {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* Left and Right sections in the modal */
+  .modal-left,
+  .modal-right {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .modal-left p,
+  .modal-right p {
+    margin: 5px 0;
+  }
+  
+  .modal-left {
+    border-right: 1px solid #ccc;
+  }
+  
+  .modal-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Input field styling */
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+    border-color: #4caf50;
+    outline: none;
+  }
+  
+  /* Project and Team Lists */
+  .project-list,
+  .team-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .project-list li,
+  .team-list li {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .project-list li:hover,
+  .team-list li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-list li p,
+  .team-list li p {
+    margin: 5px 0;
+  }
+  
+  /* Team selection buttons */
+  .team-list button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .team-list button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* No data message */
+  .no-data {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .modal-content {
+      flex-direction: column;
+    }
+  
+    .modal-left {
+      border-right: none;
+    }
+  }
+  

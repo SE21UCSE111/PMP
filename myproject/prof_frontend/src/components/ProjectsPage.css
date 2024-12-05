@@ -1,0 +1,31 @@
+/* Teams Applying Section */
+.teams-applying {
+  flex: 1;
+  padding: 10px;
+}
+
+.teams-applying ul {
+  list-style: none;
+  padding: 0;
+}
+
+.teams-applying li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.teams-applying button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.teams-applying button:hover {
+  background-color: darkred;
+}
