@@ -18,7 +18,7 @@ set PORT=3001 && npm start
 
 
 
-2.in stud_frontend
+2. in stud_frontend
 do:
 
 npm install
@@ -30,7 +30,7 @@ set PORT=3001 && npm start
 
 
 
-3.in the root directory
+3. in the root directory
 do:
 
 python manage.py makemigrations
