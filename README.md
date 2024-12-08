@@ -11,20 +11,32 @@ open three terminal
 do:
 
 npm install
+
 npm run build
+
 set PORT=3001 && npm start
+
+
 
 2.in stud_frontend
 do:
 
 npm install
+
 npm run build
+
 set PORT=3001 && npm start
+
+
+
 
 3.in the root directory
 do:
+
 python manage.py makemigrations
+
 python manage.py migrate
+
 python manage.py runserver
 
 
