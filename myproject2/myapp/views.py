@@ -9,7 +9,6 @@ from rest_framework.permissions import IsAuthenticated
 from .forms import CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt
 @api_view(['POST'])
 def sign_up_and_login(request):
     if 'signup' in request.POST:
@@ -71,7 +70,6 @@ from rest_framework.decorators import authentication_classes
 from .authentication import CsrfExemptSessionAuthentication
 from django.views.decorators.csrf import csrf_exempt
 
-@authentication_classes([CsrfExemptSessionAuthentication])
 @api_view(['POST'])
 def create_project(request):
     if request.method == 'POST':
@@ -125,7 +123,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 from .models import Project, CustomUser  # Import CustomUser if it's in a different module
-
+@login_required
 def view_projects(request, username):
     professor = get_object_or_404(CustomUser, username=username)  # Get professor by username
     projects = Project.objects.filter(created_by=professor).values()  # Get projects by professor

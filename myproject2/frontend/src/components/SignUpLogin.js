@@ -29,6 +29,7 @@ const SignUpLogin = () => {
   
       const response = await fetch('http://localhost:8000/api/sign_up_and_login/', {
         method: 'POST',
+        credentials: 'include',
         body: formData
       });
   
@@ -65,6 +66,7 @@ const SignUpLogin = () => {
 
         const response = await fetch('http://localhost:8000/api/sign_up_and_login/', {
           method: 'POST',
+          credentials: 'include',
           body: formData
         });
 
@@ -152,11 +154,11 @@ const SignUpLogin = () => {
             style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
           />
           <br />
-          <button type="submit">Sign Up</button>
+          <button type="submit" style={{ padding: "10px", width: "220px" }}>
+            Sign Up
+          </button>
         </form>
-      </div>
 
-      <div className="form-container">
         <h1>Login</h1>
         <form onSubmit={handleLogin}>
           <input
@@ -177,11 +179,13 @@ const SignUpLogin = () => {
             style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
           />
           <br />
-          <button type="submit">Login</button>
+          <button type="submit" style={{ padding: "10px", width: "220px" }}>
+            Login
+          </button>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default SignUpLogin;
