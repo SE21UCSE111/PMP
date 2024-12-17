@@ -1,0 +1,23 @@
+.professor-details {
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  .professor-details img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .professor-details h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .professor-details p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
