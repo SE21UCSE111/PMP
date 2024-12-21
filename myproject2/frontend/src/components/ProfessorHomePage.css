@@ -1,0 +1,89 @@
+/* General styles for the container */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #b2fefa, #0ed2f7);
+    color: black;
+  }
+  
+  /* Main container */
+  .professor-home-container {
+    padding: 20px;
+  }
+  
+  /* Heading styles */
+  .professor-home-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin: 10px 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Team list container */
+  .teams-container {
+    margin-top: 20px;
+  }
+  
+  .teams-container p {
+    font-size: 18px;
+    color: black;
+  }
+  
+  .teams-container div {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .teams-container div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Text inside each team card */
+  .teams-container div p {
+    margin: 5px 0;
+    color: black;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .professor-home-container {
+      padding: 10px;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  
+    .teams-container div {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  }
+  
