@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import './TeamDashboard.css';
+import './TeamDashboard.css'; // Import the CSS file
 
 function TeamDashboard() {
   const navigate = useNavigate();
@@ -141,7 +141,7 @@ function TeamDashboard() {
 
     if (!csrfToken) {
       alert("CSRF token not found.");
-      return;
+ return;
     }
 
     try {
@@ -170,35 +170,36 @@ function TeamDashboard() {
       console.error("Error saving to-do list:", error);
     }
   };
+
   const handlePostComment = async () => {
     if (!newComment.trim()) {
       alert("Please enter a comment.");
       return;
     }
-  
+
     const csrfToken = document.cookie
       .split('; ')
       .find(row => row.startsWith('csrftoken='))?.split('=')[1];
-  
+
     if (!csrfToken) {
       alert("CSRF token not found.");
       return;
     }
-  
+
     try {
       const response = await fetch('http://localhost:8000/api/post_comment/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json', // Send as JSON
+          'Content-Type': 'application/json',
           'X-CSRFToken': csrfToken,
         },
         credentials: 'include',
-        body: JSON.stringify({ // Send data as JSON
+        body: JSON.stringify({
           team_id: teamId,
           comment: newComment,
         }),
       });
-  
+
       if (response.ok) {
         alert("Comment posted successfully.");
         setNewComment("");  // Clear the comment input field
@@ -211,11 +212,11 @@ function TeamDashboard() {
       console.error("Error posting comment:", error);
     }
   };
-  
+
   return (
     <div style={{ padding: "20px" }}>
       <h1>Team Dashboard</h1>
-      <button onClick={handleBackToHome}>Back to Home</button>
+      <button onClick={handleBackToHome} style={{width:"11.67%"}}>Back to Home</button>
 
       <div style={{ marginTop: "20px" }}>
         <label>Assign Grade: </label>
@@ -228,15 +229,10 @@ function TeamDashboard() {
           <option value="F">F</option>
         </select>
 
-        <button onClick={handleSubmitGrade} style={{ marginLeft: "10px" }}>
-          Submit Grade
-        </button>
-      </div>
-
-      <div style={{ marginTop: "20px" }}>
-        <button onClick={() => setIsModalOpen(true)} style={{ marginLeft: "10px" }}>
-          Create/Update To-Do List
-        </button>
+        <div className="team-buttons">
+          <button onClick={handleSubmitGrade} style={{width:"11.67%"}}>Submit Grade</button>
+          <button onClick={() => setIsModalOpen(true)} style={{width:"11.7%"}}>Create/Update To-Do List</button>
+        </div>
       </div>
 
       <div style={{ marginTop: "20px" }}>
@@ -247,16 +243,16 @@ function TeamDashboard() {
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="Write a comment"
             rows="3"
-            style={{ width: "100%", marginBottom: "10px" }}
+            style={{ width: "100%", marginBottom: "10px"}}
           ></textarea>
-          <button onClick={handlePostComment}>Post Comment</button>
+          <button onClick={handlePostComment} style={{width:"11.67%"}}>Post Comment</button>
         </div>
 
-        <ul style={{ marginTop: "10px" }}>
+        <ul style={{ marginTop: "10px", listStyleType: "none", padding: 0 }}>
           {comments.map((comment) => (
-            <li key={comment.id}>
-              <strong>{comment.user}</strong>: {comment.text} <br />
-              <small>{new Date(comment.created_at).toLocaleString()}</small>
+            <li key={comment.id} style={{ marginBottom: "10px", border: "1px solid #ccc", padding: "10px", borderRadius: "5px",width: "300px",backgroundColor: "#f8f9fa" }}>
+              <strong style={{ color: "#007BFF" }}>{comment.user}</strong>: <span style={{ fontStyle: "italic" }}>{comment.text}</span> <br />
+              <small style={{ color: "#888" }}>{new Date(comment.created_at).toLocaleString()}</small>
             </li>
           ))}
         </ul>
@@ -298,24 +294,36 @@ function TeamDashboard() {
         </div>
       )}
 
-      <div style={{ marginTop: "20px" }}>
-        <h3>Existing To-Do List</h3>
-        <ul>
-          {tasks.map((task, index) => (
-            <li key={index}>
-              <input
-                type="checkbox"
-                checked={task.checked || false}
-                onChange={() => handleTaskCheckedChange(index)}
-              />
-              <span style={{ textDecoration: task.checked ? "line-through" : "none" }}>
-                {task.description}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+<div style={{ marginTop: "20px" }}>
+  <h3>Existing To-Do List</h3>
+  <ul style={{ listStyleType: "none", padding: 0 }}> {/* Remove default list styling */}
+    {tasks.map((task, index) => (
+      <li key={index} style={{ 
+        display: "flex", // Use flexbox for alignment
+        alignItems:"flex-start", // Center items vertically
+        padding: "3px", // Add some padding for readability
+        border: '1px solid #ccc', // Optional: Add a border for better visibility
+        borderRadius: '5px', // Rounded corners
+        width:"110px",
+        margin: '10px', // Space between list items
+        marginTop:"1px",
+        backgroundColor: '#f8f9fa', // Light background for list items
+        transition: 'background-color 0.3s' // Smooth transition for hover effect
+      }}>
+        <input
+          type="checkbox"
+          checked={task.checked || false}
+          onChange={() => handleTaskCheckedChange(index)}
+          style={{ marginRight: '10px',marginTop:"10px" }} // Space between checkbox and text
+        />
+        <span style={{ textDecoration: task.checked ? "line-through" : "none" }}>
+          {task.description}
+        </span>
+      </li>
+    ))}
+  </ul>
+</div>
+  </div>
   );
 }
 
