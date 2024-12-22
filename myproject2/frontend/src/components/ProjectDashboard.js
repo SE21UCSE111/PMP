@@ -193,11 +193,23 @@ function ProjectDashboard() {
             <h3>To-Do List</h3>
             <ul>
               {tasks.map((task) => (
-                <li key={task.id} style={{ marginBottom: "10px" }}>
+                <li key={task.id} style={{ 
+                  display: "flex", // Use flexbox for alignment
+                  alignItems:"flex-start", // Center items vertically
+                  padding: "3px", // Add some padding for readability
+                  border: '1px solid #ccc', // Optional: Add a border for better visibility
+                  borderRadius: '5px', // Rounded corners
+                  width:"110px",
+                  margin: '10px', // Space between list items
+                  marginTop:"1px",
+                  backgroundColor: '#f8f9fa', // Light background for list items
+                  transition: 'background-color 0.3s' // Smooth transition for hover effect
+                }}>
                   <input
                     type="checkbox"
                     checked={task.checked || false}
                     onChange={(event) => handleTaskChange(task.id, event)}
+                    style={{ marginRight: '10px',marginTop:"10px" }}
                   />
                   <span
                     style={{
@@ -228,7 +240,7 @@ function ProjectDashboard() {
                 padding: "10px",
                 marginBottom: "10px",
                 width: "300px", // Set a fixed width for comments
-                margin: "0", // Center the comments
+                marginBottom: "10px", // Center the comments
                 transition: "background-color 0.3s",
               }}>
                 <strong>{comment.user}:</strong> {comment.text}
@@ -291,12 +303,12 @@ function ProjectDashboard() {
           <button
             onClick={handleCloseModal}
             style={{
-              width: "11.67%", // Set width to 11.67%
+              width: "100%", 
               padding: "10px 20px",
               marginTop: "10px",
               backgroundColor: "#dc3545",
               color: "#fff",
-              border: "none",
+              border: "1px solid rgb(0, 0, 0)",
               borderRadius: "5px",
               cursor: "pointer",
             }}
