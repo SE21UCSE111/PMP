@@ -119,19 +119,18 @@ function ProjectDashboard() {
         .find(row => row.startsWith("csrftoken="))
         .split("=")[1];
 
-        const response = await fetch("http://localhost:8000/api/post_comment/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken,  // Include CSRF token here
-          },
-          credentials: 'include', // Include credentials (cookies) for authentication
-          body: JSON.stringify({
-            team_id: projectId,
-            comment: newComment,
-          }),
-        });
-        
+      const response = await fetch("http://localhost:8000/api/post_comment/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrfToken,  // Include CSRF token here
+        },
+        credentials: 'include', // Include credentials (cookies) for authentication
+        body: JSON.stringify({
+          team_id: projectId,
+          comment: newComment,
+        }),
+      });
 
       if (response.ok) {
         const commentsResponse = await fetch(`http://localhost:8000/api/get_comments/${projectId}/`, {
@@ -167,6 +166,7 @@ function ProjectDashboard() {
               <button
                 onClick={() => handleOpenModal(team.grade)}
                 style={{
+                  width: "11.67%", // Set width to 11.67%
                   padding: "10px 20px",
                   marginTop: "5px",
                   backgroundColor: "#007bff",
@@ -218,13 +218,22 @@ function ProjectDashboard() {
 
       <div style={{ marginTop: "20px" }}>
         <h3>Comments</h3>
-        <ul>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
           {comments.length > 0 ? (
             comments.map((comment) => (
-              <li key={comment.id} style={{ marginBottom: "10px" }}>
+              <li key={comment.id} style={{
+                backgroundColor: "#f8f9fa",
+                border: "1px solid #dee2e6",
+                borderRadius: "5px",
+                padding: "10px",
+                marginBottom: "10px",
+                width: "300px", // Set a fixed width for comments
+                margin: "0", // Center the comments
+                transition: "background-color 0.3s",
+              }}>
                 <strong>{comment.user}:</strong> {comment.text}
                 <br />
-                <small>{new Date(comment.created_at).toLocaleString()}</small>
+                <small style={{ color: "#6c757d" }}>{new Date(comment.created_at).toLocaleString()}</small>
               </li>
             ))
           ) : (
@@ -248,6 +257,7 @@ function ProjectDashboard() {
           <button
             onClick={handlePostComment}
             style={{
+              width: "11.67%", // Set width to 11.67%
               padding: "10px 20px",
               marginTop: "10px",
               backgroundColor: "#007bff",
@@ -281,6 +291,7 @@ function ProjectDashboard() {
           <button
             onClick={handleCloseModal}
             style={{
+              width: "11.67%", // Set width to 11.67%
               padding: "10px 20px",
               marginTop: "10px",
               backgroundColor: "#dc3545",
