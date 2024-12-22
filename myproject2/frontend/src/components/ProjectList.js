@@ -13,12 +13,12 @@ function ProjectList() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [teamMembers, setTeamMembers] = useState(["", "", "", ""]); // 4 fields for team members
   const [errors, setErrors] = useState(["", "", "", ""]); // To track input errors
-  const [loggedInUser, setLoggedInUser] = useState(""); // Track the logged-in user
+  const [loggedInUser , setLoggedInUser ] = useState(""); // Track the logged-in user
 
   useEffect(() => {
     // You can pass the logged-in user's username here
     const usernameFromStorage = localStorage.getItem("username"); // Adjust according to where you get the logged-in user's username
-    setLoggedInUser(usernameFromStorage || ""); // Set it to an empty string if not found
+    setLoggedInUser (usernameFromStorage || ""); // Set it to an empty string if not found
 
     fetch(`http://localhost:8000/api/view-projects/${username}/`, {
       method: "GET",
@@ -90,7 +90,7 @@ function ProjectList() {
 
   const handleSubmitTeam = async () => {
     // Ensure the logged-in user is added to the team if not already included
-    if (!teamMembers.includes(loggedInUser)) {
+    if (!teamMembers.includes(loggedInUser )) {
       // If the logged-in user has not typed their name, throw an error
       alert("You must include your name in the team list.");
       return; // Stop the submission
@@ -134,11 +134,10 @@ function ProjectList() {
       })
       .catch((error) => console.error("Error:", error));
   };
-  
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Projects for {username}</h1>
+    <div style={{ padding: "20px" }}> {/* Keep the overall background unchanged */}
+      <h1>Projects Of {username}</h1>
       <div>
         {projects.map((project) => (
           <div
@@ -147,11 +146,17 @@ function ProjectList() {
               margin: "10px 0",
               padding: "10px",
               border: "1px solid #ccc",
+              width: "80%", // Reduce the width of the project card
+              maxWidth: "400px", // Optional: set a max width
+              borderRadius:"10px",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+              transition: "transform 0.2s", // Smooth transition for hover effect
+              backgroundColor: "white", // Set project card background to white
             }}
           >
             <h2>{project.name}</h2>
             <p>{project.description}</p>
-            <button onClick={() => openModal(project)}>Make Team</button>
+            <button onClick={() => openModal(project)} style={{marginLeft:"0px"}}>Make Team</button>
           </div>
         ))}
       </div>
