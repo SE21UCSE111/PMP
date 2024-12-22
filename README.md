@@ -31,6 +31,9 @@ python manage.py runserver
 If you want to delete the data from database then delete the db.sqlite3 file from the root directory(cd myproject2). You now have fresh database. 
 
 
+PASSWORD NEEDS TO BE 8 CHARACTERS
+
+
 Before running npm start for both the react interfaces, paste the build files in their respective folders in the static folder which can be found in the root directory.
 
 
