@@ -28,13 +28,15 @@ python manage.py runserver
 
 
 
-If you want to delete the data from database then delete the db.sqlite3 file from the root directory(cd myproject2). You now have fresh database. 
+If you make changes to the model.py file, then delete the 1st and 3rd files in the migrations folder (found in the myapp folder) and run python manage.py makemigrations again!
+
+If you want to delete the data from database then delete the db.sqlite3 file from the root directory(cd myproject2). You now have fresh/empty database now.  
 
 
-PASSWORD NEEDS TO BE 8 CHARACTERS
+PASSWORD NEEDS TO BE 8 CHARACTERS LONG!
 
 
-Before running npm start for both the react interfaces, paste the build files in their respective folders in the static folder which can be found in the root directory.
+Before running npm start, paste the build folder (from the frontend folder) into the static folder found in myproject2 folder.
 
 
 
