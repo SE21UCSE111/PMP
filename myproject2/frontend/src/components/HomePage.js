@@ -66,6 +66,7 @@ function HomePage() {
         style={{
           marginBottom: "20px",
           padding: "10px 20px",
+          width:"11.67%",
           backgroundColor: "#007BFF",
           color: "#fff",
           border: "none",
@@ -105,6 +106,7 @@ function HomePage() {
         style={{
           marginTop: "20px",
           padding: "10px 20px",
+          width: "11.67%",
           backgroundColor: "#FF6347",
           color: "#fff",
           border: "none",
