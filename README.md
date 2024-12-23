@@ -1,6 +1,6 @@
 # PMP
 
-since sqlite is already installed
+INSTALL SQLITE!
 
 open project folder myproject2
 
