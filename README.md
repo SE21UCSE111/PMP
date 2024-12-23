@@ -1,6 +1,6 @@
 # PMP
 
-INSTALL SQLITE!
+INSTALL SQLITE! (ZIP folder given above)
 
 open project folder myproject2
 
