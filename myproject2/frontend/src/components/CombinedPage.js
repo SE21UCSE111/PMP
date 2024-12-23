@@ -55,7 +55,13 @@ function CombinedPage() {
               width: "200px",
               textAlign: "center",
               cursor: "pointer",
+              backgroundColor: "#f8f9fa", // Light background color
+              borderRadius: "8px", // Rounded corners
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+              transition: "transform 0.2s", // Smooth transition for hover effect
             }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"} // Scale up on hover
+            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"} // Scale back down
           >
             <p>{username}</p>
             <button
@@ -67,6 +73,7 @@ function CombinedPage() {
                 color: "#fff",
                 cursor: "pointer",
                 borderRadius: "5px",
+                marginLeft:"0px"
               }}
               onClick={() => navigate(`/projects/${username}`)} // Redirect to professor's projects
             >

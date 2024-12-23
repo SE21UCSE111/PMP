@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './SignUpLogin.css';
 
 const SignUpLogin = () => {
   const [role, setRole] = useState('student'); // Default role
@@ -98,8 +99,8 @@ const SignUpLogin = () => {
       <div className="form-container">
         <h1>Sign Up</h1>
         <form onSubmit={handleSignUp}>
-          <div>
-            <label>
+          <div className="radio-group" style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <label style={{ marginRight: '10px' }}>
               <input
                 type="radio"
                 value="student"
@@ -108,7 +109,7 @@ const SignUpLogin = () => {
               />
               Student
             </label>
-            <label>
+            <label style={{ marginRight: '10px' }}>
               <input
                 type="radio"
                 value="professor"
@@ -121,10 +122,10 @@ const SignUpLogin = () => {
           <input
             type="text"
             placeholder="Username"
-            value={signupData.username}
+            value={signupData .username}
             onChange={(e) => setSignupData({ ...signupData, username: e.target.value })}
             required
-            style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
+            style={{ marginBottom: "10px", padding: "10px", width: "100%" }} // Set width to 100%
           />
           <br />
           <input
@@ -133,7 +134,7 @@ const SignUpLogin = () => {
             value={signupData.email}
             onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
             required
-            style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
+            style={{ marginBottom: "10px", padding: "10px", width: "100%" }} // Set width to 100%
           />
           <br />
           <input
@@ -142,7 +143,7 @@ const SignUpLogin = () => {
             value={signupData.password1}
             onChange={(e) => setSignupData({ ...signupData, password1: e.target.value })}
             required
-            style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
+            style={{ marginBottom: "10px", padding: "10px", width: "100%" }} // Set width to 100%
           />
           <br />
           <input
@@ -151,10 +152,10 @@ const SignUpLogin = () => {
             value={signupData.password2}
             onChange={(e) => setSignupData({ ...signupData, password2: e.target.value })}
             required
-            style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
+            style={{ marginBottom: "10px", padding: "10px", width: "100%" }} // Set width to 100%
           />
           <br />
-          <button type="submit" style={{ padding: "10px", width: "220px" }}>
+          <button type="submit" style={{ padding: "10px", width: "100%" }}>
             Sign Up
           </button>
         </form>
@@ -167,7 +168,7 @@ const SignUpLogin = () => {
             value={loginData.username}
             onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
             required
-            style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
+            style={{ marginBottom: "10px", padding: "10px", width: "100%" }} // Set width to 100%
           />
           <br />
           <input
@@ -176,10 +177,10 @@ const SignUpLogin = () => {
             value={loginData.password}
             onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
             required
-            style={{ marginBottom: "10px", padding: "10px", width: "200px" }}
+            style={{ marginBottom: "10px", padding: "10px", width: "100%" }} // Set width to 100%
           />
           <br />
-          <button type="submit" style={{ padding: "10px", width: "220px" }}>
+          <button type="submit" style={{ padding: "10px", width: "100%" }}>
             Login
           </button>
         </form>

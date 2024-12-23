@@ -125,7 +125,7 @@ function ProfessorHomePage() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Hi {professorName}</h1>
-      <button onClick={() => navigate("/project_creation")}>My Projects</button>
+      <button onClick={() => navigate("/project_creation")} style={{ padding: "10px", width: "220px" }}>My Projects</button>
       <button onClick={handleLogout} style={{ padding: "10px", width: "220px" }}>
         Logout
       </button>

@@ -38,7 +38,6 @@ function ProjectsPage({ onNavigate }) {
     fetchProjects();
   }, []);
   
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewProject({
@@ -82,10 +81,14 @@ function ProjectsPage({ onNavigate }) {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Projects</h1>
-      <button onClick={() => onNavigate("/professor")}>Back to Home</button>
-      <button onClick={() => setModalOpen(true)} style={{ marginLeft: "10px" }}>
-        Create Project
-      </button>
+      <div style={{ display: "flex", gap: "10px" }}>
+        <button onClick={() => onNavigate("/professor")} style={{ width: "11.67%" }}>
+          Back to Home
+        </button>
+        <button onClick={() => setModalOpen(true)} style={{ width: "11.67%" }}>
+          Create Project
+        </button>
+      </div>
       {projects.length === 0 ? (
         <p>No projects yet</p>
       ) : (
@@ -116,17 +119,31 @@ function ProjectsPage({ onNavigate }) {
           {Object.keys(newProject).map((key) => (
             <div key={key}>
               <label>{key}</label>
-              <input
-                type="text"
-                name={key}
-                value={newProject[key]}
-                onChange={handleInputChange}
-                style={{
-                  display: "block",
-                  marginBottom: "10px",
-                  width: "100%",
-                }}
-              />
+              {key === "description" ? (
+                <textarea
+                  name={key}
+                  value={newProject[key]}
+                  onChange={handleInputChange}
+                  style={{
+                    display: "block",
+                    marginBottom: "10px",
+                    width: "100%",
+                    height: "100px", // Set height for the textarea
+                  }}
+                />
+              ) : (
+                <input
+                  type="text"
+                  name={key}
+                  value={newProject[key]}
+                  onChange={ handleInputChange}
+                  style={{
+                    display: "block",
+                    marginBottom: "10px",
+                    width: "100%",
+                  }}
+                />
+              )}
             </div>
           ))}
           <button

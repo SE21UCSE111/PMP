@@ -1,19 +1,64 @@
 /* src/components/SignUpLogin.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body takes full height */
+  background-color: #008080; /* Teal blue background */
+}
+
 .sign-up-login-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .form-container {
-    width: 45%; /* Adjust width as needed */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+}
+
+.form-container {
+  width: 400px; /* Set a fixed width for the form */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Increased border-radius for more rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white; /* Set a background color for the form */
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center; /* Center the heading */
+}
+
+input {
+  margin-bottom: 10px; /* Space between inputs */
+  padding: 10px;
+  width: 100%; /* Full width for input fields */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+button {
+  padding: 10px;
+  width: 100%; /* Full width for button */
+  background-color: #007BFF; /* Button color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Additional styles for radio buttons */
+.radio-group {
+  display: flex; /* Use flexbox to align items */
+  margin-bottom: 20px; /* Space below the radio buttons */
+  margin-top: 10px; /* Add space above the radio buttons */
+}
+
+.radio-group label {
+  margin-right: 15px; /* Space between radio buttons */
+  display: flex; /* Align label and input in a row */
+  align-items: center; /* Center align items vertically */
+}
